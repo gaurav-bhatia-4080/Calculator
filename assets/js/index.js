@@ -1,4 +1,5 @@
-
+(function() {
+  "use strict";
 
   // Shortcut to get elements
   var el = function(element) {
@@ -10,15 +11,14 @@
   };
 
   // Variables
-  var viewer = el("#viewer"); // Calculator screen where result is displayed
-  var  equals = el("#equals"); // Equal button
-  console.log(equals)
-  var  nums = el(".num"); // List of numbers
-  var  ops = el(".ops"); // List of operators
-  var  theNum = ""; // Current number
-  var oldNum = ""; // First number
-  var  resultNum; // Result
-  var  operator; // Batman
+  var viewer = el("#viewer"), // Calculator screen where result is displayed
+    equals = el("#equals"), // Equal button
+    nums = el(".num"), // List of numbers
+    ops = el(".ops"), // List of operators
+    theNum = "", // Current number
+    oldNum = "", // First number
+    resultNum, // Result
+    operator; // Batman
 
   // When: Number is clicked. Get the current number selected
   var setNum = function() {
@@ -66,6 +66,18 @@
       case "divided by":
         resultNum = oldNum / theNum;
         break;
+      case "modulo":
+        resultNum = oldNum % theNum;
+        break;
+      case "to the power":
+        resultNum = oldNum ** theNum;
+        break;
+      case "log base 10":
+        resultNum = oldNum / theNum;
+        break;
+      case "log base e":
+        resultNum = oldNum / theNum;
+        break;
 
         // If equal is pressed without an operator, keep number and continue
       default:
@@ -76,14 +88,25 @@
     if (!isFinite(resultNum)) {
       if (isNaN(resultNum)) { // If result is not a number; set off by, eg, double-clicking operators
         resultNum = "You broke it!";
+        el('#calculator').classList.add("broken"); // Break calculator
+        el('#reset').classList.add("show"); // And show reset button
       } else { // If result is infinity, set off by dividing by zero
-        resultNum = "Look at what you've done";
+        resultNum = "Aww Snap!!";
         el('#calculator').classList.add("broken"); // Break calculator
         el('#reset').classList.add("show"); // And show reset button
       }
     }
 
     // Display result, finally!
+    
+    console.log(typeof(resultNum));
+    if (typeof(resultNum)=="number"){
+      console.log("hello");
+      resultNum=resultNum.toPrecision(10);
+    }
+    else{
+      resultNum=resultNum;
+    }
     viewer.innerHTML = resultNum;
     equals.setAttribute("data-result", resultNum);
 
@@ -124,3 +147,4 @@
     window.location = window.location;
   };
 
+}());
