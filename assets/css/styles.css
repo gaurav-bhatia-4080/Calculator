@@ -14,7 +14,7 @@ html {
     margin: 0;
     padding: 3em 0 2em;
     text-align: center;
-    overflow: hidden;
+    overflow:hidden;
   }
   
   h1 {
@@ -93,7 +93,7 @@ html {
       outline: 0; 
   }
   /* The value fade-ins that appear */
-/*  button:focus::after{
+ /* button:focus::after{
 
       
       animation: zoom 1s;
@@ -103,27 +103,33 @@ html {
       cursor: default;
       font-size: 100px;
       position: absolute;
-      top: 1.5em;
-      left: 50%;
+      /* top: 1.5em;
+      left: 50%; */
       text-align: center;
-      margin-left: -24px;
+      margin:auto;
       opacity: 0;
-      width: 48px;    
-      }*/
+      /* width: 48px;     */
+      z-index: -1;
+      } */
   
   /* Same as above, modified for operators */
-/*  .ops:focus::after {
+ /* .ops:focus::after {
     content: attr(data-ops);
-    margin-left: -210px;
+    margin:auto;
+    /* position: absolute; */
+    left: 5em;
+    top: 5em;
     width: 420px;
-  }*/
+    z-index: -1;
+  } */
   
   /* Same as above, modified for result */
-/*  .equals:focus::after {
+ /* .equals:focus::after {
     content: attr(data-result);
-    margin-left: -300px;
-    width: 600px;
-  }*/
+    margin:auto;
+    /* width: 600px; */
+    z-index: -1;
+  } */
   
   .less{
     font-size: 15px;

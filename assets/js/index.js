@@ -2,19 +2,25 @@
   "use strict";
 
   // Shortcut to get elements
-  var el = function(element) {
+  var short = function(element) {
     if (element.charAt(0) === "#") { // If passed an ID...
       return document.querySelector(element); // ... returns single element
     }
 
     return document.querySelectorAll(element); // Otherwise, returns a nodelist
   };
+  function isInt(n){
+    return Number(n) === n && n % 1 === 0;
+  }
 
+  function isFloat(n){
+    return Number(n) === n && n % 1 !== 0;
+    }
   // Variables
-  var viewer = el("#viewer"), // Calculator screen where result is displayed
-    equals = el("#equals"), // Equal button
-    nums = el(".num"), // List of numbers
-    ops = el(".ops"), // List of operators
+  var viewer = short("#viewer"), // Calculator screen where result is displayed
+    equals = short("#equals"), // Equal button
+    nums = short(".num"), // List of numbers
+    ops = short(".ops"), // List of operators
     theNum = "", // Current number
     oldNum = "", // First number
     resultNum, // Result
@@ -51,22 +57,22 @@
 
     // Perform operation
     switch (operator) {
-      case "plus":
+      case "+":
         resultNum = oldNum + theNum;
         break;
 
-      case "minus":
+      case "-":
         resultNum = oldNum - theNum;
         break;
 
-      case "times":
+      case "X":
         resultNum = oldNum * theNum;
         break;
 
-      case "divided by":
+      case "/":
         resultNum = oldNum / theNum;
         break;
-      case "modulo":
+      case "%":
         resultNum = oldNum % theNum;
         break;
       case "to the power":
@@ -86,27 +92,29 @@
 
     // If NaN or Infinity returned
     if (!isFinite(resultNum)) {
-      if (isNaN(resultNum)) { // If result is not a number; set off by, eg, double-clicking operators
+      if (isNaN(resultNum)) { 
         resultNum = "You broke it!";
-        el('#calculator').classList.add("broken"); // Break calculator
-        el('#reset').classList.add("show"); // And show reset button
+        short('#calculator').classList.add("broken"); // Break calculator
+        short('#reset').classList.add("show"); // And show reset button
       } else { // If result is infinity, set off by dividing by zero
         resultNum = "Aww Snap!!";
-        el('#calculator').classList.add("broken"); // Break calculator
-        el('#reset').classList.add("show"); // And show reset button
+        short('#calculator').classList.add("broken"); 
+        short('#reset').classList.add("show"); 
       }
     }
 
-    // Display result, finally!
+    // Display result
     
     console.log(typeof(resultNum));
-    if (typeof(resultNum)=="number"){
-      console.log("hello");
+    if (isFloat(resultNum)){
       resultNum=resultNum.toPrecision(10);
     }
-    else{
+    else if (isInt(resultNum)){
       resultNum=resultNum;
     }
+    // else{
+    //   resultNum=resultNum;
+    // }
     viewer.innerHTML = resultNum;
     equals.setAttribute("data-result", resultNum);
 
@@ -140,10 +148,10 @@
   equals.onclick = displayNum;
 
   // Add click event to clear button
-  el("#clear").onclick = clearAll;
+  short("#clear").onclick = clearAll;
 
   // Add click event to reset button
-  el("#reset").onclick = function() {
+  short("#reset").onclick = function() {
     window.location = window.location;
   };
 
