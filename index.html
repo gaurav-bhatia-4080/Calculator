@@ -6,7 +6,11 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/styles.css"></link> 
 	<!-- Including Font Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <meta name="viewport" content="Width=device-width, initial-scale=1">
+	<meta name="viewport" content="Width=device-width, initial-scale=1">
+	<script>
+		var bleep = new Audio();
+		bleep.src = "assets/sounds/zapsplat_multimedia_click_001_19367.mp3"
+	</script>
 </head>
 <body>
 	<h1>Calculator</h1>
@@ -19,30 +23,30 @@
 
 		  <div id="viewer" class="viewer">0</div>
 
-		  <button class="num btn btn-six" data-num="7">7</button>
-		  <button class="num btn btn-six" data-num="8">8</button>
-		  <button class="num btn btn-six" data-num="9">9</button>
-		  <button data-ops="+" class="ops btn btn-six">+</button>
+		  <button class="num btn btn-six" data-num="7" onmousedown="bleep.play()">7</button>
+		  <button class="num btn btn-six" data-num="8" onmousedown="bleep.play()">8</button>
+		  <button class="num btn btn-six" data-num="9" onmousedown="bleep.play()">9</button>
+		  <button data-ops="+" class="ops btn btn-six" onmousedown="bleep.play()">+</button>
 
-		  <button class="num btn btn-six" data-num="4">4</button>
-		  <button class="num btn btn-six" data-num="5">5</button>
-		  <button class="num btn btn-six" data-num="6">6</button>
-		  <button data-ops="-" class="ops btn btn-six">-</button>
+		  <button class="num btn btn-six" data-num="4" onmousedown="bleep.play()">4</button>
+		  <button class="num btn btn-six" data-num="5" onmousedown="bleep.play()">5</button>
+		  <button class="num btn btn-six" data-num="6" onmousedown="bleep.play()">6</button>
+		  <button data-ops="-" class="ops btn btn-six" onmousedown="bleep.play()">-</button>
 
-		  <button class="num btn btn-six" data-num="1">1</button>
-		  <button class="num btn btn-six" data-num="2">2</button>
-		  <button class="num btn btn-six" data-num="3">3</button>
-		  <button data-ops="X" class="ops btn btn-six">X</button>
+		  <button class="num btn btn-six" data-num="1" onmousedown="bleep.play()">1</button>
+		  <button class="num btn btn-six" data-num="2" onmousedown="bleep.play()">2</button>
+		  <button class="num btn btn-six" data-num="3" onmousedown="bleep.play()">3</button>
+		  <button data-ops="X" class="ops btn btn-six" onmousedown="bleep.play()">X</button>
 
-		  <button class="num btn btn-six" data-num="0">0</button>
-		  <button class="num btn btn-six" data-num=".">.</button>
-		  <button data-ops="to the power" class="ops btn btn-six">x<sup class="less">y</sup> </button>
-		  <button data-ops="/" class="ops btn btn-six">/</button>
+		  <button class="num btn btn-six" data-num="0" onmousedown="bleep.play()">0</button>
+		  <button class="num btn btn-six" data-num="." onmousedown="bleep.play()">.</button>
+		  <button data-ops="to the power" class="ops btn btn-six" onmousedown="bleep.play()">x<sup class="less">y</sup> </button>
+		  <button data-ops="/" class="ops btn btn-six" onmousedown="bleep.play()">/</button>
 		  
-		  <button data-ops="%" class="ops btn btn-six">%</button>
-		  <button data-ops="log base 10" class="ops btn btn-six">log</button>
-		  <button data-ops="log base e" class="ops btn btn-six">ln</button>
-		  <button id="equals" class="equals btn btn-six" data-result="">=</button>
+		  <button data-ops="%" class="ops btn btn-six" onmousedown="bleep.play()">%</button>
+		  <button data-ops="log base 10" class="ops btn btn-six" onmousedown="bleep.play()">log</button>
+		  <button data-ops="log base e" class="ops btn btn-six" onmousedown="bleep.play()">ln</button>
+		  <button id="equals" class="equals btn btn-six" data-result="" onmousedown="bleep.play()">=</button>
 		  
 	</div>
 
